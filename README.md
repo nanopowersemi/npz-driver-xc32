@@ -19,11 +19,3 @@ This project utilizes the **nPZero Driver** to execute the following functionali
 These examples demonstrate the necessary procedures for initialization, configuration, and data exchange required for sensor interaction using the **nPZero Driver**.
 
 
-## Using the nPZero Configurator
-This project is compatible with the nPZero Configurator, allowing the configuration to be established directly in the tool:
-1) Configure the device as required in the nPZero Configurator
-2) Ensure the *Default* template is selected in the *Generated Code* section
-3) Click on Save As in the *Generated code* section, and replace the *main.c* file in the *src* folder of this project
-   (When making subsequent changes to the configuration, it is sufficient to press *Save* in the *Generated Code* section and the *main.c* file will be updated automatically)
-4) Build and flash the code in VSCode as normal
-
