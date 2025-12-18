@@ -1,0 +1,252 @@
+configVersion: 1.0.0
+componentName: core
+coreVersion: 5.8.3
+device: PIC32MX250F128B
+library: []
+dependency:
+- dependencyPackage: class com.microchip.mcc.harmony.HarmonyModule
+  name: core
+  type: module
+  version: ''
+- dependencyPackage: ''
+  name: csp
+  type: package
+  version: v3.24.0
+customDataClassName: com.microchip.utils_mh3.utils.persistence.CustomModuleData
+data:
+  attachments: {}
+  elementPosition:
+    attributes:
+      id: __ROOTVIEW
+    children:
+    - children:
+      - attributes:
+          id: core
+          x: '10'
+          y: '18'
+        type: ElementPosition
+      type: ElementPositions
+    type: ComponentGraph
+  symbols:
+    EVIC_32_ENABLE:
+      attributes:
+        id: EVIC_32_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVIC_32_HANDLER_LOCK:
+      attributes:
+        id: EVIC_32_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVIC_32_INTERRUPT_HANDLER:
+      attributes:
+        id: EVIC_32_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: UART_1_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    EVIC_33_ENABLE:
+      attributes:
+        id: EVIC_33_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVIC_33_HANDLER_LOCK:
+      attributes:
+        id: EVIC_33_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    EVIC_33_INTERRUPT_HANDLER:
+      attributes:
+        id: EVIC_33_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: I2C_1_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    I2C1_CLOCK_ENABLE:
+      attributes:
+        id: I2C1_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: i2c1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    I2C1_CLOCK_FREQUENCY:
+      attributes:
+        id: I2C1_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    I2C_1_INTERRUPT_ENABLE:
+      attributes:
+        id: I2C_1_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: i2c1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    I2C_1_INTERRUPT_ENABLE_UPDATE:
+      attributes:
+        id: I2C_1_INTERRUPT_ENABLE_UPDATE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    I2C_1_INTERRUPT_HANDLER:
+      attributes:
+        id: I2C_1_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: i2c1
+            value: I2C_1_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    I2C_1_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: I2C_1_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: i2c1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    PMD5_REG_VALUE:
+      attributes:
+        id: PMD5_REG_VALUE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '16909058'
+          type: Dynamic
+        type: Values
+      type: Hex
+    UART1_CLOCK_ENABLE:
+      attributes:
+        id: UART1_CLOCK_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    UART1_CLOCK_FREQUENCY:
+      attributes:
+        id: UART1_CLOCK_FREQUENCY
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: '48000000'
+          type: Dynamic
+        type: Values
+      type: Integer
+    UART_1_INTERRUPT_ENABLE:
+      attributes:
+        id: UART_1_INTERRUPT_ENABLE
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    UART_1_INTERRUPT_ENABLE_UPDATE:
+      attributes:
+        id: UART_1_INTERRUPT_ENABLE_UPDATE
+      children:
+      - children:
+        - attributes:
+            id: core
+            value: 'false'
+          type: Dynamic
+        type: Values
+      type: Boolean
+    UART_1_INTERRUPT_HANDLER:
+      attributes:
+        id: UART_1_INTERRUPT_HANDLER
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: UART_1_InterruptHandler
+          type: Dynamic
+        type: Values
+      type: String
+    UART_1_INTERRUPT_HANDLER_LOCK:
+      attributes:
+        id: UART_1_INTERRUPT_HANDLER_LOCK
+      children:
+      - children:
+        - attributes:
+            id: uart1
+            value: 'true'
+          type: Dynamic
+        type: Values
+      type: Boolean
+  userData:
+    children:
+    - attributes:
+        canvasHeight: '0'
+        canvasWidth: '0'
+      type: GraphSettings
+    - children:
+      - attributes:
+          id: profile0
+          name: Main
+        type: Profile
+      type: PowerProfiles
+    type: UserData
