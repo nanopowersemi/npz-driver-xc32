@@ -1,0 +1,49 @@
+name: Release with submodules
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Generate Token to GitHub App
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout repository (base)
+        uses: actions/checkout@v4
+        with:
+          token: ${{ steps.generate_token.outputs.token }}
+          submodules: false 
+
+      - name: URL and Update Submodules to HEAD
+        run: |
+          # 1. URL of file .gitmodules
+          sed -i 's|git@gitea.nano.power:NP0_G0_EVB/nPZero_driver.git|https://github.com|g' .gitmodules
+          
+          # 2. Sync URL
+          git submodule sync
+          
+          # 3. Force update to latest branch (HEAD)
+          # A flag --remote ignore commit SHA registed in repo
+          git submodule update --init --recursive --remote --force
+
+      - name: Create ZIP file
+        run: |
+          zip -r npz-driver-xc32.zip . -x "*.git*" ".github/*"
+
+      - name: Upload Asset para a Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: npz-driver-xc32.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
