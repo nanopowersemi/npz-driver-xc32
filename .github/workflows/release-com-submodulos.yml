@@ -39,11 +39,24 @@ jobs:
 
       - name: Create ZIP file
         run: |
-          zip -r npz-driver-xc32.zip . -x "*.git*" ".github/*"
+          ZIP_NAME="npz-driver-xc32-${{ github.event.release.tag_name }}.zip"
+          zip -r "$ZIP_NAME" . -x "*.git*" ".github/*"
 
-      - name: Upload Asset para a Release
+          echo "ZIP_FILENAME=$ZIP_NAME" >> $GITHUB_ENV
+
+      - name: Upload Asset to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: npz-driver-xc32.zip
+          files: ${{ env.ZIP_FILENAME }}
+          append_body: true
+          # Generates the changelog automatically
+          generate_release_notes: true 
+          body: |
+            
+            ---
+            ### 📦 Submodules Included
+            > [!IMPORTANT]
+            > Please use the **`${{ env.ZIP_FILENAME }}`** asset attached below for the complete project.
+            > The default "Source code" zips provided by GitHub **do not** include submodule content.
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
