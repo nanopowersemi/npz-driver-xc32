@@ -137,8 +137,8 @@ static void read_peripheral_acc(int peripheral_value)
 static void read_peripheral_temp(int peripheral_value)
 {
     // Calculate the temperature in degrees Celsius
-    float temperature = peripheral_value * 0.0078125f;  // AS6212 temperature sensor resolution is 0.0078125°C.
-    printf("Calculated temperature: %.3f °C\r\n", temperature);
+    float temperature = peripheral_value * 0.0078125f;  // AS6212 temperature sensor resolution is 0.0078125ï¿½C.
+    printf("Calculated temperature: %.3f ï¿½C\r\n", temperature);
 }
 
 static void npz_read_status_registers(npz_status_s *status)
@@ -233,26 +233,6 @@ static void npz_read_status_registers(npz_status_s *status)
     }
 }
 
-/**@brief Function for detecting the nPZero on the I2C bus
- */
-uint8_t npz_search(void)
-{
-    uint8_t sample_data;
-
-    npz_hal_read(NPZ_I2C_ADDRESS, REG_ID, &sample_data, 1, 5);
-
-    if ((sample_data) == 0x60)
-    {
-    	printf("[--- nPZero Init OK ---]\r\n");
-    	return 1;
-    }
-    else
-    {
-    	printf("[--- nPZero Init Not OK 0x%x---]\r\n", sample_data);
-    	return 0;
-    }
-}
-
 // *****************************************************************************
 // *****************************************************************************
 // Section: Main Entry Point
@@ -267,7 +247,7 @@ int main ( void )
     printf("nPZero-Gen1 PIC32MX TEST ");
     
         // Initialize the npz interface
-    npz_hal_init();
+    npz_init();
 
     __delay_ms(1);
 
@@ -276,8 +256,7 @@ int main ( void )
 
     npz_read_status_registers(&npz_status);
 
-    npz_search();
-
+    
     // Send the configuration to the device
     npz_device_configure(&npz_configuration);
 
